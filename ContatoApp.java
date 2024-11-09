@@ -19,7 +19,6 @@ public class ContatoApp extends JFrame {
 
         gerenciador = new GerenciadorContatos(Comparator.comparing(Contato::getNome));
 
-        // Painel para entrada de dados
         JPanel inputPanel = new JPanel(new GridLayout(4, 2, 5, 5));
 
         inputPanel.add(new JLabel("Nome:"));
@@ -34,7 +33,6 @@ public class ContatoApp extends JFrame {
         telefoneField = new JTextField();
         inputPanel.add(telefoneField);
 
-        // Painel para botões
         JPanel buttonPanel = new JPanel(new GridLayout(2, 2, 5, 5));
 
         JButton addButton = new JButton("Adicionar Contato");
@@ -53,18 +51,15 @@ public class ContatoApp extends JFrame {
         listButton.addActionListener(new ListarContatosAction());
         buttonPanel.add(listButton);
 
-        // Área de saída para mostrar os resultados
         outputArea = new JTextArea(10, 30);
         outputArea.setEditable(false);
 
-        // Layout principal
         setLayout(new BorderLayout());
         add(inputPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
         add(new JScrollPane(outputArea), BorderLayout.SOUTH);
     }
 
-    // Ação para adicionar contato
     private class AdicionarContatoAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -83,7 +78,6 @@ public class ContatoApp extends JFrame {
         }
     }
 
-    // Ação para remover contato
     private class RemoverContatoAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -93,7 +87,6 @@ public class ContatoApp extends JFrame {
         }
     }
 
-    // Ação para buscar contato por telefone
     private class BuscarContatoAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -107,7 +100,6 @@ public class ContatoApp extends JFrame {
         }
     }
 
-    // Ação para listar todos os contatos
     private class ListarContatosAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

@@ -7,7 +7,6 @@ public class GerenciadorContatos {
     private ArrayList<Contato> listaContatos;
     private TreeMap<Contato, Contato> contatosOrdenados;
 
-    // Construtor com comparador personalizado
     public GerenciadorContatos(Comparator<Contato> comparator) {
         this.listaContatos = new ArrayList<>();
         this.contatosOrdenados = new TreeMap<>(comparator);
@@ -56,7 +55,6 @@ public class GerenciadorContatos {
         }
     }
 
-    // Classe interna para busca por nome
     private class BuscarPorNome {
         public Contato buscar(String nome) {
             return contatosOrdenados.values().stream()
@@ -66,7 +64,6 @@ public class GerenciadorContatos {
         }
     }
 
-    // Classe interna para busca por telefone
     private class BuscarPorTelefone {
         public Contato buscar(String telefone) {
             return listaContatos.stream()
